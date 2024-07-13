@@ -24,15 +24,15 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        setContentView(R.layout.register_main)
 
         DB = DBHelper(this)
-        editTextId = findViewById(R.id.editTextId_Reg)
-        editTextPassword = findViewById(R.id.editTextPass_Reg)
-        editTextRePassword = findViewById(R.id.editTextRePass_Reg)
+        editTextId = findViewById(R.id.editTextId)
+        editTextPassword = findViewById(R.id.editTextPassword)
+        editTextRePassword = findViewById(R.id.editTextRePass)
         editTextNick = findViewById(R.id.editTextNick_Reg)
         editTextPhone = findViewById(R.id.editTextPhone_Reg)
-        btnRegister = findViewById(R.id.btnRegister_Reg)
+        btnRegister = findViewById(R.id.btnRegister)
         btnCheckId = findViewById(R.id.btnCheckId_Reg)
         btnCheckNick = findViewById(R.id.btnCheckNick_Reg)
 
