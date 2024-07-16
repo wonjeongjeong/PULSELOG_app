@@ -9,7 +9,7 @@ import android.widget.ImageButton
 import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
-    lateinit var btnLogin: ImageButton
+    lateinit var btnLogin: Button
     lateinit var editTextId: EditText
     lateinit var editTextPassword: EditText
     lateinit var btnRegister: Button
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         DB = DBHelper(this)
 
-        btnLogin = findViewById(R.id.btnLogin)
+        btnLogin = findViewById(R.id.registerBtn)
         editTextId = findViewById(R.id.editTextId)
         editTextPassword = findViewById(R.id.editTextPassword)
         btnRegister = findViewById(R.id.btnRegister)
@@ -51,8 +51,8 @@ class MainActivity : AppCompatActivity() {
         }
         // 회원가입 버튼 클릭시
         btnRegister.setOnClickListener {
-            val loginIntent = Intent(this@MainActivity, RegisterActivity::class.java)
-            startActivity(loginIntent)
+            val registerIntent = Intent(this@MainActivity, RegisterActivity::class.java)
+            startActivity(registerIntent)
         }
     }
 }

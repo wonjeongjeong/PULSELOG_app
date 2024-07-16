@@ -50,7 +50,7 @@
             android:fontFamily="@font/cafe24surround"
             android:text="회원가입"
             android:textColor="#FFF2DC"
-            android:textSize="16dp" />
+            android:textSize="16sp" />
 
         <View
             android:layout_width="match_parent"
@@ -61,7 +61,7 @@
         <EditText
             android:id="@+id/editTextName"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:background="@drawable/radius"
@@ -72,14 +72,14 @@
             android:inputType="text"
             android:textColor="#102542"
             android:textColorHint="#7A5144"
-            android:textSize="13dp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
         <EditText
             android:id="@+id/editTextPhonenum"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:background="@drawable/radius"
@@ -90,20 +90,20 @@
             android:inputType="text"
             android:textColor="#102542"
             android:textColorHint="#7A5144"
-            android:textSize="13dp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_marginTop="12dp">
 
             <EditText
                 android:id="@+id/editTextId"
                 android:layout_width="match_parent"
-                android:layout_height="35dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:background="@drawable/radius"
                 android:backgroundTint="#FFF2DC"
@@ -113,18 +113,18 @@
                 android:inputType="text"
                 android:textColor="#102542"
                 android:textColorHint="#7A5144"
-                android:textSize="13dp"
+                android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <Button
-                android:id="@+id/button"
-                android:layout_width="50dp"
-                android:layout_height="30dp"
+                android:id="@+id/btnCheckId"
+                android:layout_width="70dp"
+                android:layout_height="48dp"
                 android:text="중복확인"
                 android:fontFamily="@font/cafe24surround_air"
-                android:textSize="8dp"
+                android:textSize="12sp"
                 android:layout_gravity="center|right"
                 android:layout_marginRight="5dp"
                 android:backgroundTint="#102542"
@@ -134,19 +134,19 @@
         </FrameLayout>
 
         <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView2"
+            android:id="@+id/IDcondition"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:paddingLeft="12dp"
             android:text="4~12글자, 영어와 숫자 조합만 가능합니다"
-            android:textSize="10dp"
-            android:fontFamily="@font/cafe24surround_air"
+            android:textSize="12sp"
+            android:fontFamily="@font/cafe24surround"
             android:textColor="#FFF2DC"/>
 
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:layout_marginTop="11px"
             android:background="@drawable/radius"
@@ -157,7 +157,7 @@
             android:inputType="textPassword"
             android:textColor="#102542"
             android:textColorHint="#7A5144"
-            android:textSize="13dp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -165,19 +165,19 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextId" />
 
         <AutoCompleteTextView
-            android:id="@+id/autoCompleteTextView"
+            android:id="@+id/PWcondition"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
+            android:fontFamily="@font/cafe24surround"
             android:paddingLeft="12dp"
             android:text="8글자 이상, 영문/숫자/특수문자를 모두 사용해야 합니다"
-            android:textSize="10dp"
-            android:fontFamily="@font/cafe24surround"
-            android:textColor="#FFF2DC"/>
+            android:textColor="#FFF2DC"
+            android:textSize="11sp" />
 
         <EditText
             android:id="@+id/editTextCheckPW"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:layout_marginTop="11px"
             android:background="@drawable/radius"
@@ -188,7 +188,7 @@
             android:inputType="textPassword"
             android:textColor="#102542"
             android:textColorHint="#7A5144"
-            android:textSize="13dp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -197,111 +197,111 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/checkBox"
-                android:layout_width="30dp"
-                android:layout_height="35dp"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
-
                 android:text="CheckBox" />
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/agreement1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
                 android:layout_gravity="center"
                 android:text="이용약관 동의서"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:fontFamily="@font/cafe24surround"
                 android:textColor="#FFF2DC"/>
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/needtxt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:layout_gravity="center"
                 android:text="(필수)"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:fontFamily="@font/cafe24surround"
                 android:textColor="#EF6F6C"/>
 
             <View
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1" />
 
             <ImageButton
                 android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="end|center"
+                android:background="#102542"
                 android:paddingRight="10dp"
-                android:background="none"
-                android:src="@drawable/right_btn" />
+                android:src="@drawable/right_btn"
+                android:contentDescription="@string/desc_image_button1"/>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="48dp"
             android:orientation="horizontal">
 
             <CheckBox
                 android:id="@+id/checkBox2"
-                android:layout_width="30dp"
-                android:layout_height="35dp"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
                 android:text="CheckBox" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/agreement2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
                 android:layout_gravity="center"
                 android:text="개인정보 수집 동의서"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:fontFamily="@font/cafe24surround"
                 android:textColor="#FFF2DC" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/needtxt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
                 android:layout_gravity="center"
                 android:text="(필수)"
-                android:textSize="14dp"
+                android:textSize="14sp"
                 android:fontFamily="@font/cafe24surround"
                 android:textColor="#EF6F6C" />
 
             <View
                 android:layout_width="0dp"
-                android:layout_height="32dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1" />
 
             <ImageButton
                 android:id="@+id/imageButton2"
-                android:layout_width="wrap_content"
-                android:layout_height="32dp"
+                android:layout_width="48dp"
+                android:layout_height="match_parent"
                 android:layout_gravity="end|center"
-                android:background="none"
+                android:background="#102542"
                 android:paddingRight="10dp"
-                android:src="@drawable/right_btn" />
+                android:src="@drawable/right_btn"
+                android:contentDescription="@string/desc_image_button2"/>
         </LinearLayout>
 
         <Button
-            android:id="@+id/loginBtn"
+            android:id="@+id/registerBtn"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#FFF2DC"
             android:fontFamily="@font/cafe24surround"
             android:text="가입하기"
+            android:textSize="14sp"
             android:textColor="#102542" />
 
 

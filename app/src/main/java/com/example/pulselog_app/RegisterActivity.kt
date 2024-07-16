@@ -16,7 +16,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var editTextRePassword: EditText
     lateinit var editTextNick: EditText
     lateinit var editTextPhone: EditText
-    lateinit var btnRegister: ImageButton
+    lateinit var btnRegister: Button
     lateinit var btnCheckId: Button
     var CheckId:Boolean=false
     lateinit var btnCheckNick: Button
@@ -29,12 +29,11 @@ class RegisterActivity : AppCompatActivity() {
         DB = DBHelper(this)
         editTextId = findViewById(R.id.editTextId)
         editTextPassword = findViewById(R.id.editTextPassword)
-        editTextRePassword = findViewById(R.id.editTextRePass)
-        editTextNick = findViewById(R.id.editTextNick_Reg)
-        editTextPhone = findViewById(R.id.editTextPhone_Reg)
-        btnRegister = findViewById(R.id.btnRegister)
-        btnCheckId = findViewById(R.id.btnCheckId_Reg)
-        btnCheckNick = findViewById(R.id.btnCheckNick_Reg)
+        editTextRePassword = findViewById(R.id.editTextCheckPW)
+        editTextNick = findViewById(R.id.editTextName)
+        editTextPhone = findViewById(R.id.editTextPhonenum)
+        btnRegister = findViewById(R.id.registerBtn)
+        btnCheckId = findViewById(R.id.btnCheckId)
 
         // 아이디 중복확인
         btnCheckId.setOnClickListener {
@@ -66,33 +65,33 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         // 닉네임 중복확인
-        btnCheckNick.setOnClickListener {
-            val nick = editTextNick.text.toString()
-            val nickPattern = "^[ㄱ-ㅣ가-힣]*$"
-
-            if (nick == "") {
-                Toast.makeText(
-                    this@RegisterActivity,
-                    "닉네임을 입력해주세요.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-            else {
-                if (Pattern.matches(nickPattern, nick)) {
-                    val checkNick = DB!!.checkNick(nick)
-                    if(checkNick == false){
-                        CheckNick = true
-                        Toast.makeText(this@RegisterActivity, "사용 가능한 닉네임입니다.", Toast.LENGTH_SHORT).show()
-                    }
-                    else {
-                        Toast.makeText(this@RegisterActivity, "이미 존재하는 닉네임입니다.", Toast.LENGTH_SHORT).show()
-                    }
-                }
-                else {
-                    Toast.makeText(this@RegisterActivity, "닉네임 형식이 옳지 않습니다.", Toast.LENGTH_SHORT).show()
-                }
-            }
-        }
+//        btnCheckNick.setOnClickListener {
+//            val nick = editTextNick.text.toString()
+//            val nickPattern = "^[ㄱ-ㅣ가-힣]*$"
+//
+//            if (nick == "") {
+//                Toast.makeText(
+//                    this@RegisterActivity,
+//                    "닉네임을 입력해주세요.",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//            else {
+//                if (Pattern.matches(nickPattern, nick)) {
+//                    val checkNick = DB!!.checkNick(nick)
+//                    if(checkNick == false){
+//                        CheckNick = true
+//                        Toast.makeText(this@RegisterActivity, "사용 가능한 닉네임입니다.", Toast.LENGTH_SHORT).show()
+//                    }
+//                    else {
+//                        Toast.makeText(this@RegisterActivity, "이미 존재하는 닉네임입니다.", Toast.LENGTH_SHORT).show()
+//                    }
+//                }
+//                else {
+//                    Toast.makeText(this@RegisterActivity, "닉네임 형식이 옳지 않습니다.", Toast.LENGTH_SHORT).show()
+//                }
+//            }
+//        }
 
         // 완료 버튼 클릭 시
         btnRegister.setOnClickListener {

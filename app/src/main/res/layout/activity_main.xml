@@ -61,7 +61,7 @@
         <EditText
             android:id="@+id/editTextId"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:layout_marginTop="12dp"
             android:background="@drawable/radius"
@@ -72,7 +72,7 @@
             android:inputType="text"
             android:textColor="#102542"
             android:textColorHint="#7A5144"
-            android:textSize="13dp"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -80,7 +80,7 @@
         <EditText
             android:id="@+id/editTextPassword"
             android:layout_width="match_parent"
-            android:layout_height="35dp"
+            android:layout_height="48dp"
             android:layout_gravity="center"
             android:layout_marginTop="11px"
             android:background="@drawable/radius"
@@ -91,7 +91,7 @@
             android:inputType="textPassword"
             android:textColor="#102542"
             android:textColorHint="#7A5144"
-            android:textSize="13dp"
+            android:textSize="14sp"
             app:layout_constraintBottom_toTopOf="@+id/btnLogin"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -99,26 +99,27 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextId" />
 
         <Button
-            android:id="@+id/loginBtn"
+            android:id="@+id/registerBtn"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#FFF2DC"
             android:fontFamily="@font/cafe24surround"
             android:text="로그인하기"
+            android:textSize="14sp"
             android:textColor="#102542" />
 
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
-            android:layout_height="28dp"
+            android:layout_height="48dp"
             android:layout_gravity="right|bottom"
             android:backgroundTint="#00FF0000"
             android:fontFamily="@font/cafe24surround"
             android:padding="0dp"
             android:text="회원가입"
             android:textColor="#FFF2DC"
-            android:textSize="12dp" />
+            android:textSize="15sp" />
     </LinearLayout>
 
 
