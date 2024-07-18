@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 투명한 배경으로 클리핑 비활성화 -->
+    <item android:drawable="@android:color/transparent" />
+    <item>
+        <bitmap
+            android:src="@drawable/pulselog_logo"
+            android:gravity="center"
+            android:width="192dp"
+            android:height="192dp"
+            android:tileMode="disabled"
+            />
+    </item>
+</layer-list>

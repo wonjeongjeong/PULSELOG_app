@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PULSELOG_app</string>
+    <string name="desc_image_button1">이용약관 동의서 버튼</string>
+    <string name="desc_image_button2">개인정보 수집 동의서</string>
+</resources>
