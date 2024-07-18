@@ -8,16 +8,22 @@
     <LinearLayout
         android:layout_width="407dp"
         android:layout_height="669dp"
+        android:layout_marginStart="8dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingLeft="16dp"
+            android:paddingTop="0dp"
+            android:paddingRight="16dp">
 
             <ImageView
                 android:id="@+id/Logo_img"
@@ -36,14 +42,145 @@
                 android:text="PULSELOG"
                 android:textColor="#102542"
                 android:textSize="18dp" />
+
             <ImageView
                 android:id="@+id/Toggle_btn"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:adjustViewBounds="true"
                 android:paddingTop="12dp"
-                android:src="@drawable/toggle_btn"
-                android:layout_gravity="right">
-            </ImageView>
+                android:src="@drawable/toggle_btn"></ImageView>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="16dp">
+
+            <!--            탈수주의-->
+            <LinearLayout
+                android:layout_width="300sp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_box"
+                android:orientation="vertical"
+                android:padding="1dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="18dp">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/water_drop"></ImageView>
+
+                    <TextView
+                        android:id="@+id/talsuAlert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cafe24surround"
+                        android:paddingLeft="6dp"
+                        android:text="탈수주의!"
+                        android:textColor="#49A9EF"
+                        android:textSize="15sp"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:paddingTop="12sp">
+
+                    <TextView
+                        android:id="@+id/temperatureDefaultMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/cafe24surround_air"
+                        android:text="현재 이용자님의 체온"
+                        android:layout_gravity="center"
+                        android:textColor="#ffffff"
+                        android:textSize="10sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/userTemperature"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/cafe24surround"
+                        android:paddingLeft="6dp"
+                        android:text="37.5도"
+                        android:textColor="#EF6F6C"
+                        android:textSize="13sp"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:id="@+id/offerMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/cafe24surround_air"
+                        android:text="권장사항"
+                        android:textColor="#ffffff"
+                        android:textSize="10sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/alertMsg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/cafe24surround"
+                        android:paddingLeft="6dp"
+                        android:text="수분섭취 및 휴식"
+                        android:textColor="#ffffff"
+                        android:textSize="12sp"></TextView>
+                </LinearLayout>
+                <!--                버튼 두개 묶음-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="12sp"
+                    android:layout_gravity="center"
+                    android:paddingBottom="10dp">
+
+                    <Button
+                        android:id="@+id/drinkcompleteBtn"
+                        android:layout_width="200sp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#4373f6"
+                        android:fontFamily="@font/cafe24surround"
+                        android:text="섭취완료"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp" />
+
+                    <Button
+                        android:id="@+id/managerAlertBtn"
+                        android:layout_width="200sp"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#ef6f6c"
+                        android:fontFamily="@font/cafe24surround"
+                        android:text="관리자호출"
+                        android:textColor="#FFFFFF"
+                        android:textSize="13sp" />
+
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
