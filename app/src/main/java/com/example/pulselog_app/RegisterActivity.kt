@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ImageButton
 import android.widget.Toast
@@ -19,8 +20,8 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var btnRegister: Button
     lateinit var btnCheckId: Button
     var CheckId:Boolean=false
-    lateinit var btnCheckNick: Button
-    var CheckNick:Boolean=false
+    lateinit var checkBox1: CheckBox
+    lateinit var checkBox2: CheckBox
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,6 +35,8 @@ class RegisterActivity : AppCompatActivity() {
         editTextPhone = findViewById(R.id.editTextPhonenum)
         btnRegister = findViewById(R.id.registerBtn)
         btnCheckId = findViewById(R.id.btnCheckId)
+        checkBox1 = findViewById(R.id.checkBox1)
+        checkBox2 = findViewById(R.id.checkBox2)
 
         // 아이디 중복확인
         btnCheckId.setOnClickListener {
@@ -64,35 +67,6 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        // 닉네임 중복확인
-//        btnCheckNick.setOnClickListener {
-//            val nick = editTextNick.text.toString()
-//            val nickPattern = "^[ㄱ-ㅣ가-힣]*$"
-//
-//            if (nick == "") {
-//                Toast.makeText(
-//                    this@RegisterActivity,
-//                    "닉네임을 입력해주세요.",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//            else {
-//                if (Pattern.matches(nickPattern, nick)) {
-//                    val checkNick = DB!!.checkNick(nick)
-//                    if(checkNick == false){
-//                        CheckNick = true
-//                        Toast.makeText(this@RegisterActivity, "사용 가능한 닉네임입니다.", Toast.LENGTH_SHORT).show()
-//                    }
-//                    else {
-//                        Toast.makeText(this@RegisterActivity, "이미 존재하는 닉네임입니다.", Toast.LENGTH_SHORT).show()
-//                    }
-//                }
-//                else {
-//                    Toast.makeText(this@RegisterActivity, "닉네임 형식이 옳지 않습니다.", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//        }
-
         // 완료 버튼 클릭 시
         btnRegister.setOnClickListener {
             val user = editTextId.text.toString()
@@ -102,6 +76,8 @@ class RegisterActivity : AppCompatActivity() {
             val phone = editTextPhone.text.toString()
             val pwPattern = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z[0-9]@$!%*?&]{8,}$"
             val phonePattern = "^010[0-9]{8}$"
+            var isCheckBox1 = checkBox1.isChecked()
+            var isCheckBox2 = checkBox2.isChecked()
             // 사용자 입력이 비었을 때
             if (user == "" || pass == "" || repass == "" || nick == "" || phone == "") Toast.makeText(
                 this@RegisterActivity,
@@ -117,27 +93,47 @@ class RegisterActivity : AppCompatActivity() {
                         if (pass == repass) {
                             // 번호 형식
                             if (Pattern.matches(phonePattern, phone)) {
-                                val insert = DB!!.insertData(user, pass, nick, phone)
-                                // 가입 성공 시 Toast를 띄우고 메인 화면으로 전환
-                                if (insert == true) {
+                                // 이용약관 동의
+                                if(isCheckBox1 == true) {
+                                    // 개인정보 수집 동의
+                                    if (isCheckBox2 == true) {
+                                        val insert = DB!!.insertData(user, pass, nick, phone)
+                                        // 가입 성공 시 Toast를 띄우고 메인 화면으로 전환
+                                        if (insert == true) {
+                                            Toast.makeText(
+                                                this@RegisterActivity,
+                                                "가입되었습니다.",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                            val intent =
+                                                Intent(applicationContext, MainActivity::class.java)
+                                            startActivity(intent)
+                                        }
+                                        // 가입 실패 시
+                                        else {
+                                            Toast.makeText(
+                                                this@RegisterActivity,
+                                                "가입 실패하였습니다.",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        }
+                                    // 개인정보 수집 미동의
+                                    } else {
+                                        Toast.makeText(
+                                            this@RegisterActivity,
+                                            "개인정보 수집에 동의해주세요.",
+                                            Toast.LENGTH_SHORT
+                                        ).show()
+                                    }
+                                // 이용약관 미동의
+                                } else {
                                     Toast.makeText(
                                         this@RegisterActivity,
-                                        "가입되었습니다.",
-                                        Toast.LENGTH_SHORT
-                                    ).show()
-                                    val intent =
-                                        Intent(applicationContext, MainActivity::class.java)
-                                    startActivity(intent)
-                                }
-                                // 가입 실패 시
-                                else {
-                                    Toast.makeText(
-                                        this@RegisterActivity,
-                                        "가입 실패하였습니다.",
+                                        "이용약관에 동의해주세요.",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
-
+                            // 전화번호 형식이 맞지 않을 때
                             } else {
                                 Toast.makeText(
                                     this@RegisterActivity,

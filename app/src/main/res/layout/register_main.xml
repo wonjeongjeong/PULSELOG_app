@@ -8,7 +8,7 @@
     tools:context=".RegisterActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayoutVertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -25,13 +25,13 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/Logo_img"
+                android:id="@+id/logoImg"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:src="@drawable/pulselog_logo" />
 
             <TextView
-                android:id="@+id/Title_txt"
+                android:id="@+id/titleTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -43,7 +43,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/login_txt"
+            android:id="@+id/loginTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
@@ -134,7 +134,7 @@
         </FrameLayout>
 
         <AutoCompleteTextView
-            android:id="@+id/IDcondition"
+            android:id="@+id/idCondition"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:paddingLeft="12dp"
@@ -165,7 +165,7 @@
             app:layout_constraintTop_toBottomOf="@+id/editTextId" />
 
         <AutoCompleteTextView
-            android:id="@+id/PWcondition"
+            android:id="@+id/pwCondition"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:fontFamily="@font/cafe24surround"
@@ -202,7 +202,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/checkBox1"
                 android:layout_width="48dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -219,7 +219,7 @@
                 android:textColor="#FFF2DC"/>
 
             <TextView
-                android:id="@+id/needtxt1"
+                android:id="@+id/needTxt1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
@@ -267,7 +267,7 @@
                 android:textColor="#FFF2DC" />
 
             <TextView
-                android:id="@+id/needtxt2"
+                android:id="@+id/needTxt2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
