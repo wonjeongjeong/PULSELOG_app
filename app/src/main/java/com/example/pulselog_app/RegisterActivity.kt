@@ -38,7 +38,7 @@ class RegisterActivity : AppCompatActivity() {
         // 아이디 중복확인
         btnCheckId.setOnClickListener {
             val user = editTextId.text.toString()
-            val idPattern = "^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z[0-9]]{6,15}$"
+            val idPattern = "^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z[0-9]]{4,12}$"
 
             if (user == "") {
                 Toast.makeText(
@@ -100,8 +100,8 @@ class RegisterActivity : AppCompatActivity() {
             val repass = editTextRePassword.text.toString()
             val nick = editTextNick.text.toString()
             val phone = editTextPhone.text.toString()
-            val pwPattern = "^(?=.*[A-Za-z])(?=.*[0-9])[A-Za-z[0-9]]{8,15}$"
-            val phonePattern = "^(\\+[0-9]+)?[0-9]{10,15}$"
+            val pwPattern = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z[0-9]@$!%*?&]{8,}$"
+            val phonePattern = "^010[0-9]{8}$"
             // 사용자 입력이 비었을 때
             if (user == "" || pass == "" || repass == "" || nick == "" || phone == "") Toast.makeText(
                 this@RegisterActivity,
@@ -115,44 +115,33 @@ class RegisterActivity : AppCompatActivity() {
                     if (Pattern.matches(pwPattern, pass)) {
                         // 비밀번호 재확인 성공
                         if (pass == repass) {
-                            // 닉네임 중복확인
-                            if (CheckNick == true) {
-                                // 번호 형식
-                                if (Pattern.matches(phonePattern, phone)) {
-                                    val insert = DB!!.insertData(user, pass, nick, phone)
-                                    // 가입 성공 시 Toast를 띄우고 메인 화면으로 전환
-                                    if (insert == true) {
-                                        Toast.makeText(
-                                            this@RegisterActivity,
-                                            "가입되었습니다.",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                        val intent =
-                                            Intent(applicationContext, MainActivity::class.java)
-                                        startActivity(intent)
-                                    }
-                                    // 가입 실패 시
-                                    else {
-                                        Toast.makeText(
-                                            this@RegisterActivity,
-                                            "가입 실패하였습니다.",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-                                    }
-
-                                } else {
+                            // 번호 형식
+                            if (Pattern.matches(phonePattern, phone)) {
+                                val insert = DB!!.insertData(user, pass, nick, phone)
+                                // 가입 성공 시 Toast를 띄우고 메인 화면으로 전환
+                                if (insert == true) {
                                     Toast.makeText(
                                         this@RegisterActivity,
-                                        "전화번호 형식이 옳지 않습니다.",
+                                        "가입되었습니다.",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                    val intent =
+                                        Intent(applicationContext, MainActivity::class.java)
+                                    startActivity(intent)
+                                }
+                                // 가입 실패 시
+                                else {
+                                    Toast.makeText(
+                                        this@RegisterActivity,
+                                        "가입 실패하였습니다.",
                                         Toast.LENGTH_SHORT
                                     ).show()
                                 }
-                            }
-                            // 닉네임 중복확인 하지 않았을 때
-                            else {
+
+                            } else {
                                 Toast.makeText(
                                     this@RegisterActivity,
-                                    "닉네임 중복확인을 해주세요.",
+                                    "전화번호 형식이 옳지 않습니다.",
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
