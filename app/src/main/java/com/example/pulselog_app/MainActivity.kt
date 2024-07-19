@@ -62,7 +62,6 @@ class MainActivity : AppCompatActivity() {
         editTextId = findViewById(R.id.editTextId)
         editTextPassword = findViewById(R.id.editTextPassword)
         btnRegister = findViewById(R.id.btnRegister)
-        btnBioRegister = findViewById(R.id.bioRegister)
 
         // SharedPreferences 안에 값이 저장되어 있지 않을 때 -> Login
         if(MySharedPreferences.getUserId(this).isNullOrBlank() || MySharedPreferences.getUserPass(this).isNullOrBlank()) {
@@ -112,10 +111,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        /*// 생체인증 버튼 클릭시
-        btnBioRegister.setOnClickListener {
-            authenticateToEncrypt()  //생체 인증 가능 여부확인
-        }*/
     }
     private fun setPromptInfo(): BiometricPrompt.PromptInfo {
 
