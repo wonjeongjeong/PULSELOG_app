@@ -64,44 +64,58 @@ class MainActivity : AppCompatActivity() {
         btnRegister = findViewById(R.id.btnRegister)
         btnBioRegister = findViewById(R.id.bioRegister)
 
-
-
-        // 로그인 버튼 클릭
-        btnLogin!!.setOnClickListener {
-            val user = editTextId!!.text.toString()
-            val pass = editTextPassword!!.text.toString()
-
-            // 빈칸 제출시 Toast
-            if (user == "" || pass == "") {
-                Toast.makeText(this@MainActivity, "아이디와 비밀번호를 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
+        // SharedPreferences 안에 값이 저장되어 있지 않을 때 -> Login
+        if(MySharedPreferences.getUserId(this).isNullOrBlank() || MySharedPreferences.getUserPass(this).isNullOrBlank()) {
+            // 회원가입 버튼 클릭시
+            btnRegister.setOnClickListener {
+                val registerIntent = Intent(this@MainActivity, RegisterActivity::class.java)
+                startActivity(registerIntent)
             }
-            else {
-                val checkUserpass = DB!!.checkUserpass(user, pass)
-                // id 와 password 일치시
-                if (checkUserpass == true) {
-                    Toast.makeText(this@MainActivity, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
 
-                    val intent = Intent(this, HomeActivity::class.java)
-                    startActivity(intent)
+            // 로그인 버튼 클릭
+            btnLogin!!.setOnClickListener {
+                val user = editTextId!!.text.toString()
+                val pass = editTextPassword!!.text.toString()
+
+                // 빈칸 제출시 Toast
+                if (user == "" || pass == "") {
+                    Toast.makeText(this@MainActivity, "아이디와 비밀번호를 모두 입력해주세요.", Toast.LENGTH_SHORT).show()
                 }
                 else {
-                    Toast.makeText(this@MainActivity, "아이디와 비밀번호를 확인해 주세요.", Toast.LENGTH_SHORT).show()
+                    val checkUserpass = DB!!.checkUserpass(user, pass)
+                    // id 와 password 일치시
+                    if (checkUserpass == true) {
+                        MySharedPreferences.setUserId(this, editTextId.text.toString())
+                        MySharedPreferences.setUserPass(this, editTextPassword.text.toString())
+
+                        Toast.makeText(this@MainActivity, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+
+                        val intent = Intent(this, HomeActivity::class.java)
+                        startActivity(intent)
+                    }
+                    else {
+                        Toast.makeText(this@MainActivity, "아이디와 비밀번호를 확인해 주세요.", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }
-        // 회원가입 버튼 클릭시
-        btnRegister.setOnClickListener {
-            val registerIntent = Intent(this@MainActivity, RegisterActivity::class.java)
-            startActivity(registerIntent)
+        else { // SharedPreferences 안에 값이 저장되어 있을 때 -> MainActivity로 이동
+            biometricPrompt = setBiometricPrompt()
+            promptInfo = setPromptInfo()
+
+            authenticateToEncrypt()  //생체 인증 가능 여부확인
+
+            Toast.makeText(this, "${MySharedPreferences.getUserId(this)}님 로그인 되었습니다.", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
 
-        biometricPrompt = setBiometricPrompt()
-        promptInfo = setPromptInfo()
 
-        // 생체인증 버튼 클릭시
+        /*// 생체인증 버튼 클릭시
         btnBioRegister.setOnClickListener {
             authenticateToEncrypt()  //생체 인증 가능 여부확인
-        }
+        }*/
     }
     private fun setPromptInfo(): BiometricPrompt.PromptInfo {
 
