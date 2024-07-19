@@ -19,7 +19,6 @@ import androidx.biometric.BiometricManager.Authenticators.BIOMETRIC_STRONG
 import androidx.biometric.BiometricManager.Authenticators.DEVICE_CREDENTIAL
 import androidx.biometric.BiometricPrompt.PromptInfo
 import androidx.core.content.ContextCompat
-import com.example.pulselog_app.databinding.ActivityMainBinding
 import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
@@ -33,7 +32,6 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val TAG: String = "MainActivity"
     }
-    lateinit var binding: ActivityMainBinding
 
     private var executor: Executor? = null
     private var biometricPrompt: BiometricPrompt? = null
@@ -66,6 +64,8 @@ class MainActivity : AppCompatActivity() {
         btnRegister = findViewById(R.id.btnRegister)
         btnBioRegister = findViewById(R.id.bioRegister)
 
+
+
         // 로그인 버튼 클릭
         btnLogin!!.setOnClickListener {
             val user = editTextId!!.text.toString()
@@ -94,13 +94,11 @@ class MainActivity : AppCompatActivity() {
             val registerIntent = Intent(this@MainActivity, RegisterActivity::class.java)
             startActivity(registerIntent)
         }
-        // 생체인증 버튼 클릭시
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
         biometricPrompt = setBiometricPrompt()
         promptInfo = setPromptInfo()
 
+        // 생체인증 버튼 클릭시
         btnBioRegister.setOnClickListener {
             authenticateToEncrypt()  //생체 인증 가능 여부확인
         }
@@ -113,9 +111,9 @@ class MainActivity : AppCompatActivity() {
         promptBuilder.setSubtitle("Log in using your biometric credential")
         promptBuilder.setNegativeButtonText("Use account password")
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) { //  안면인식 ap사용 android 11부터 지원
+        /*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) { //  안면인식 ap사용 android 11부터 지원
             promptBuilder.setAllowedAuthenticators(BiometricManager.Authenticators.BIOMETRIC_STRONG or BiometricManager.Authenticators.DEVICE_CREDENTIAL)
-        }
+        }*/
 
         promptInfo = promptBuilder.build()
         return promptInfo as PromptInfo
