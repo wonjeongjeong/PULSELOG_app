@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.pulselog_app"
-        minSdk = 34
+        minSdk = 30
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    viewBinding {
+        enable = true
+    }
 }
 
 dependencies {
@@ -47,4 +50,6 @@ dependencies {
 
     //splash
     implementation("androidx.core:core-splashscreen:1.0.1")
+    //Bio
+    implementation("androidx.biometric:biometric:1.1.0")
 }
