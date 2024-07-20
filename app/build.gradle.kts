@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId = "com.example.pulselog_app"
-        minSdk = 34
+        minSdk = 30
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -33,6 +33,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -47,4 +50,7 @@ dependencies {
 
     //splash
     implementation("androidx.core:core-splashscreen:1.0.1")
+
+    //kako map
+    implementation ("com.kakao.maps.open:android:2.9.5")
 }
