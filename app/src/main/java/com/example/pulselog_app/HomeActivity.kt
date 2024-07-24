@@ -15,13 +15,14 @@ import com.kakao.vectormap.MapView
 
 
 class HomeActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
 
     lateinit var btnLogout: ImageButton
     private lateinit var menuButton: ImageButton
     private lateinit var menuItem1: LinearLayout
     private lateinit var menuItem2: LinearLayout
     private lateinit var mapView : MapView
-    @SuppressLint("MissingInflatedId")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)

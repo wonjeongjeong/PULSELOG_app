@@ -84,11 +84,10 @@ class MainActivity : AppCompatActivity() {
                     val checkUserpass = DB!!.checkUserpass(user, pass)
                     // id 와 password 일치시
                     if (checkUserpass == true) {
-                        MySharedPreferences.setUserId(this, editTextId.text.toString())
-                        MySharedPreferences.setUserPass(this, editTextPassword.text.toString())
+                        MySharedPreferences.setUserId(this, user)
+                        MySharedPreferences.setUserPass(this, pass)
 
                         Toast.makeText(this@MainActivity, "로그인 되었습니다.", Toast.LENGTH_SHORT).show()
-
                         val intent = Intent(this, HomeActivity::class.java)
                         startActivity(intent)
                     }
