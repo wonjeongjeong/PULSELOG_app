@@ -15,7 +15,7 @@ class RegisterActivity : AppCompatActivity() {
     lateinit var editTextId: EditText
     lateinit var editTextPassword: EditText
     lateinit var editTextRePassword: EditText
-    lateinit var editTextNick: EditText
+    lateinit var editTextName: EditText
     lateinit var editTextPhone: EditText
     lateinit var btnRegister: Button
     lateinit var btnCheckId: Button
@@ -28,10 +28,10 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.register_main)
 
         DB = DBHelper(this)
+        editTextName = findViewById(R.id.editTextName)
         editTextId = findViewById(R.id.editTextId)
         editTextPassword = findViewById(R.id.editTextPassword)
         editTextRePassword = findViewById(R.id.editTextCheckPW)
-        editTextNick = findViewById(R.id.editTextName)
         editTextPhone = findViewById(R.id.editTextPhonenum)
         btnRegister = findViewById(R.id.registerBtn)
         btnCheckId = findViewById(R.id.btnCheckId)
@@ -72,21 +72,21 @@ class RegisterActivity : AppCompatActivity() {
             val user = editTextId.text.toString()
             val pass = editTextPassword.text.toString()
             val repass = editTextRePassword.text.toString()
-            val nick = editTextNick.text.toString()
+            val name = editTextName.text.toString()
             val phone = editTextPhone.text.toString()
             val pwPattern = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z[0-9]@$!%*?&]{8,}$"
             val phonePattern = "^010[0-9]{8}$"
             var isCheckBox1 = checkBox1.isChecked()
             var isCheckBox2 = checkBox2.isChecked()
             // 사용자 입력이 비었을 때
-            if (user == "" || pass == "" || repass == "" || nick == "" || phone == "") Toast.makeText(
+            if (user == "" || pass == "" || repass == "" || name == "" || phone == "") Toast.makeText(
                 this@RegisterActivity,
                 "회원정보를 모두 입력해주세요.",
                 Toast.LENGTH_SHORT
             ).show()
             else {
                 // 아이디 중복 확인이 됐을 때
-                if (CheckId == true) {
+                if (CheckId) {
                     // 비밀번호 형식이 맞을 때
                     if (Pattern.matches(pwPattern, pass)) {
                         // 비밀번호 재확인 성공
@@ -94,12 +94,12 @@ class RegisterActivity : AppCompatActivity() {
                             // 번호 형식
                             if (Pattern.matches(phonePattern, phone)) {
                                 // 이용약관 동의
-                                if(isCheckBox1 == true) {
+                                if(isCheckBox1) {
                                     // 개인정보 수집 동의
-                                    if (isCheckBox2 == true) {
-                                        val insert = DB!!.insertData(user, pass, nick, phone)
+                                    if (isCheckBox2) {
+                                        val insert = DB!!.insertData(name=name, phone=phone, id=user, password=pass)
                                         // 가입 성공 시 Toast를 띄우고 메인 화면으로 전환
-                                        if (insert == true) {
+                                        if (insert) {
                                             Toast.makeText(
                                                 this@RegisterActivity,
                                                 "가입되었습니다.",

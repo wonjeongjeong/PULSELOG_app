@@ -21,7 +21,7 @@ class DBHelper(context: Context) :
     fun insertData (name: String?, phone: String?, id: String?, password: String?): Boolean {
         val MyDB = this.writableDatabase
         val contentValues = ContentValues()
-        contentValues.put("name", name)
+        contentValues.put("nick", name)
         contentValues.put("phone", phone)
         contentValues.put("id", id)
         contentValues.put("password", password)
@@ -36,15 +36,17 @@ class DBHelper(context: Context) :
         var res = true
         val cursor = MyDB.rawQuery("Select * from users where id =?", arrayOf(id))
         if (cursor.count <= 0) res = false
+        cursor.close()
         return res
     }
 
-    // 사용자 닉네임이 없으면 false, 이미 존재하면 true
+    // 사용자 이름이 없으면 false, 이미 존재하면 true
     fun checkName(name: String?): Boolean {
         val MyDB = this.readableDatabase
         var res = true
-        val cursor = MyDB.rawQuery("Select * from users where nick =?", arrayOf(name))
+        val cursor = MyDB.rawQuery("Select * from users where name =?", arrayOf(name))
         if (cursor.count <= 0) res = false
+        cursor.close()
         return res
     }
 
@@ -57,6 +59,7 @@ class DBHelper(context: Context) :
             arrayOf(id, password)
         )
         if (cursor.count <= 0) res = false
+        cursor.close()
         return res
     }
 
