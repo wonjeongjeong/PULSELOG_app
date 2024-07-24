@@ -1,5 +1,6 @@
 package com.example.pulselog_app
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -15,6 +16,7 @@ import com.kakao.vectormap.MapView
 
 class HomeActivity : AppCompatActivity() {
 
+    lateinit var btnLogout: ImageButton
     private lateinit var menuButton: ImageButton
     private lateinit var menuItem1: LinearLayout
     private lateinit var menuItem2: LinearLayout
@@ -28,6 +30,14 @@ class HomeActivity : AppCompatActivity() {
         menuItem1 = findViewById(R.id.toggleOption1)
         menuItem2 = findViewById(R.id.toggleOption2)
         mapView = findViewById(R.id.kakaoMapView)
+        btnLogout = findViewById(R.id.btn_logout)
+
+        btnLogout.setOnClickListener {
+            MySharedPreferences.clearUser(this)
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         mapView.start(object : MapLifeCycleCallback() {
             override fun onMapDestroy() {
@@ -67,12 +77,6 @@ class HomeActivity : AppCompatActivity() {
                     menuItem2.visibility = View.GONE
                 }
             }
-
-
-
-
-
-
     }
-    }
+}
 
