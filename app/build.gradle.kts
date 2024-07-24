@@ -33,8 +33,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-    viewBinding {
-        enable = true
+
+    buildFeatures {
+        viewBinding = true
+
     }
 }
 
@@ -50,6 +52,11 @@ dependencies {
 
     //splash
     implementation("androidx.core:core-splashscreen:1.0.1")
+
     //Bio
     implementation("androidx.biometric:biometric:1.1.0")
+
+    //kako map
+    implementation ("com.kakao.maps.open:android:2.9.5")
+
 }
