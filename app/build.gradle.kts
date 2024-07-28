@@ -53,4 +53,12 @@ dependencies {
 
     //kako map
     implementation ("com.kakao.maps.open:android:2.9.5")
+
+    //RecyclerView
+    implementation ("androidx.recyclerview:recyclerview:1.3.1")
+
+    //fragment
+    implementation("androidx.fragment:fragment-ktx:1.4.1")
+
+
 }

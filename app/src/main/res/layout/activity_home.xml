@@ -13,12 +13,12 @@
         android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="320dp"
+            android:layout_width="match_parent"
             android:layout_height="736dp"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="315dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="16dp"
@@ -43,15 +43,29 @@
                     android:textColor="#102542"
                     android:textSize="18sp" />
 
+                <ImageButton
+                    android:id="@+id/toggleBtn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="MainMenuToggle"
+                    android:padding="0dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/toggle_btn"></ImageButton>
+
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:paddingLeft="16dp">
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="16dp">
                 <!--            탈수주의-->
+
                 <LinearLayout
                     android:layout_width="300sp"
                     android:layout_height="wrap_content"
@@ -157,7 +171,7 @@
                             android:fontFamily="@font/cafe24surround"
                             android:text="섭취완료"
                             android:textColor="#FFFFFF"
-                            android:textSize="13sp" />
+                            android:textSize="20sp" />
 
                         <Button
                             android:id="@+id/managerAlertBtn"
@@ -167,167 +181,99 @@
                             android:fontFamily="@font/cafe24surround"
                             android:text="관리자호출"
                             android:textColor="#FFFFFF"
-                            android:textSize="13sp" />
+                            android:textSize="20sp" />
 
 
                     </LinearLayout>
                 </LinearLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="300sp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/border_box"
-                android:padding="1dp">
 
                 <LinearLayout
-                    android:id="@+id/userPulseBox"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/personalInfo"
+                    android:layout_width="60dp"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="16dp">
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="120dp"
+                    android:background="@drawable/border_box"
+                    android:orientation="vertical"
+                    android:padding="1dp">
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/heart_logo"></ImageView>
-
-                    <TextView
-                        android:id="@+id/pulse"
+                    <LinearLayout
+                        android:id="@+id/userPulseBox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/cafe24surround"
-                        android:paddingLeft="6dp"
-                        android:text="102"
-                        android:textColor="#ef6f6c"
-                        android:textSize="20sp"></TextView>
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp">
 
-                    <TextView
-                        android:id="@+id/bpmTxt"
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/heart_logo"></ImageView>
+
+                        <TextView
+                            android:id="@+id/pulse"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cafe24surround"
+                            android:paddingLeft="6dp"
+                            android:text="102"
+                            android:textColor="#ef6f6c"
+                            android:textSize="20sp"></TextView>
+
+                        <TextView
+                            android:id="@+id/bpmTxt"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cafe24surround_air"
+                            android:paddingLeft="6dp"
+                            android:text="bpm"
+                            android:textColor="#ef6f6c"
+                            android:textSize="15sp"></TextView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/extraWorkBox"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:fontFamily="@font/cafe24surround_air"
-                        android:paddingLeft="6dp"
-                        android:text="bpm"
-                        android:textColor="#ef6f6c"
-                        android:textSize="15sp"></TextView>
+                        android:orientation="vertical"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp">
+
+                        <ImageView
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:src="@drawable/smile_face"></ImageView>
+
+                        <TextView
+                            android:id="@+id/noExtraWork"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/cafe24surround"
+                            android:text="잔업없음"
+                            android:textColor="#ffffff"
+                            android:textSize="15sp"></TextView>
+
+                    </LinearLayout>
                 </LinearLayout>
 
-                <LinearLayout
-                    android:id="@+id/extraWorkBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="16dp"
-                    android:paddingBottom="16dp">
-
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:src="@drawable/smile_face"></ImageView>
-
-                    <TextView
-                        android:id="@+id/noExtraWork"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/cafe24surround"
-                        android:paddingLeft="6dp"
-                        android:text="잔업없음"
-                        android:textColor="#ffffff"
-                        android:textSize="20sp"></TextView>
-
-                </LinearLayout>
             </LinearLayout>
 
             <com.kakao.vectormap.MapView
                 android:id="@+id/kakaoMapView"
-                android:layout_width="370dp"
-                android:layout_height="250dp"
+                android:layout_width="391dp"
+                android:layout_height="321dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
                 android:orientation="horizontal"></com.kakao.vectormap.MapView>
+
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/verticalMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:paddingLeft="16dp"
-            android:paddingTop="16dp">
 
-            <ImageButton
-                android:id="@+id/toggleBtn"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:background="@android:color/transparent"
-                android:contentDescription="MainMenuToggle"
-                android:padding="0dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/toggle_btn"></ImageButton>
-
-            <LinearLayout
-                android:id="@+id/toggleOption1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="mypageMenu"
-                    android:padding="0dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/mypage_logo"></ImageButton>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="1dp"
-                    android:fontFamily="@font/cafe24surround"
-                    android:text="내정보"
-                    android:textColor="#102542"
-                    android:textSize="15sp"></TextView>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/toggleOption2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <ImageButton
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="16dp"
-                    android:background="@android:color/transparent"
-                    android:contentDescription="scheduleMenu"
-                    android:padding="0dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/calender_logo"></ImageButton>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="1dp"
-                    android:fontFamily="@font/cafe24surround"
-                    android:text="근무일지"
-                    android:textColor="#102542"
-                    android:textSize="15sp"></TextView>
-            </LinearLayout>
         </LinearLayout>
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
